@@ -4,7 +4,7 @@ title:  "How to make a deploy a simple GroupMe Bot with Sinatra and Heroku"
 date:   2013-08-19
 ---
 
-In this simple post, I'll show you how to make an very simple GroupMe bot.
+In this simple post, I'll show you how to make a very simple GroupMe bot.
 
 Prerequisites
 -------------
@@ -23,10 +23,10 @@ Setting Up
 Don't worry about providing a correct callback url for now, we'll get to 
 that later
 
-2. Create a Heroku account. We'll use heroku to deploy our bot when
+2. Create a Heroku account. We'll use Heroku to deploy our bot when
 we're ready. Don't worry its free. 
 
-3. Now login to heroku:
+3. Login to Heroku:
   
 		heroku login
 
@@ -38,7 +38,7 @@ so that you can deploy.
         heroku create
 
 Heroku has now created a new app for you, initialized an empty git repo in your current directory, and has added
-heroku's server details as a git remote called 'heroku'.
+Heroku's server details as a git remote called 'heroku'.
 
 5. Heroku should spit out what the url of your hosted app will be. I'd recommend choosing a friendlier name using
 **heroku rename** ie:
@@ -49,10 +49,11 @@ heroku's server details as a git remote called 'heroku'.
    Make sure you POST a callback_url in step 3. It should look something like: *simple-gm-app.herokuapp.com*   
    Example: 
 
-        curl -X POST -d '{"bot": { "name": "Johnny Five", "group_id": "2000" } }'
+        curl -X POST -d '{"bot": { "name": "Johnny Five", "group_id": "2000", \
+        "callback_url": "http://simple-gm-app.herokuapp.com" } }' \
         https://api.groupme.com/v3/bots?token=token123
 
-   Note: There is a syntax error in the curl example from step 3 in the GroupMe tutorial. There are no closing 
+   Note: There is a syntax error in the curl example in step 3 of the GroupMe tutorial. There are no closing 
    braces.
 
 Getting Started... for reals
@@ -111,7 +112,7 @@ You should notice that we get an HTTP 200 OK response, which means everything is
 like http://localhost:4567/i_dont_need_no_callback, you'll get a 404, because we have not defined such a route. Furthermore, if you try the same 
 callback_url route with a GET instead of a POST, you'll get the same thing. We need to define routes before we can use them.
 
-GroupMe POSTs a bunch of JSON to our route. We need to get the read the body of the request, and parse the JSON. 
+GroupMe POSTs a bunch of JSON to our route. We need to read the body of the request, and parse the JSON. 
 Let me show you what I mean. 
 
 {% highlight ruby %}
@@ -179,7 +180,15 @@ end
 
 {% endhighlight %}
 
-That's pretty much it for the code. We just need to deploy it by pushing to heroku. 
+That's pretty much it for the code. We just need to make a config.ru file that Heroku needs:
+
+{% highlight ruby %}
+#config.ru
+require './hello'
+run Sinatra::Application
+{% endhighlight %}
+
+Now deploy by pushing to heroku. 
 
     git commit -a -m "initial commit"
     git push heroku master
@@ -190,6 +199,7 @@ Resources
 ---------
 
 [Heroku Ruby Help](https://devcenter.heroku.com/articles/ruby) - Read at least up to 'Visit your application'
+[Deploying Rack-based Apps to Heroku](https://devcenter.heroku.com/articles/rack)
 [GroupMe Basic 'bot' tutorial](https://dev.groupme.com/tutorials/bots)
 [GroupMe API Reference](https://dev.groupme.com/docs/v3)
 [Sinatra Docs](http://www.sinatrarb.com/intro.html)
