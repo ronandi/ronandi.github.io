@@ -198,11 +198,11 @@ And... that should be it. Try sending 'Say hello' in the group you've registered
 Resources
 ---------
 
-[Heroku Ruby Help](https://devcenter.heroku.com/articles/ruby) - Read at least up to 'Visit your application'
-[Deploying Rack-based Apps to Heroku](https://devcenter.heroku.com/articles/rack)
-[GroupMe Basic 'bot' tutorial](https://dev.groupme.com/tutorials/bots)
-[GroupMe API Reference](https://dev.groupme.com/docs/v3)
-[Sinatra Docs](http://www.sinatrarb.com/intro.html)
-[HTTP Methods](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods)
+* [Heroku Ruby Help](https://devcenter.heroku.com/articles/ruby) - Read at least up to 'Visit your application'
+* [Deploying Rack-based Apps to Heroku](https://devcenter.heroku.com/articles/rack)
+* [GroupMe Basic 'bot' tutorial](https://dev.groupme.com/tutorials/bots)
+* [GroupMe API Reference](https://dev.groupme.com/docs/v3)
+* [Sinatra Docs](http://www.sinatrarb.com/intro.html)
+* [HTTP Methods](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods)
 
 Let me know if anything is unclear, if there are errors, or if you just need help.
