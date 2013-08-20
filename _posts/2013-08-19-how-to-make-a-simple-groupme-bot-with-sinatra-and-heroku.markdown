@@ -1,7 +1,8 @@
 ---
-layout: post
-title:  "How to make a deploy a simple GroupMe Bot with Sinatra and Heroku"
-date:   2013-08-19
+layout:     post
+title:      "How to make a deploy a simple GroupMe Bot with Sinatra and Heroku"
+date:       2013-08-19
+permalink:  groupme-bot-tutorial.html
 ---
 
 In this simple post, I'll show you how to make a very simple GroupMe bot.
